@@ -4,23 +4,20 @@ import { APP_BASE_HREF } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-
-import { AboutModule } from './about/about.module';
-import { HomeModule } from './home/home.module';
-import { SharedModule } from './shared/shared.module';
-import { CoreModule } from './core/core.module';
+import {UserService} from "./user/user.service";
+import {InterviewComponent} from "./user/user.component";
+import {UserModule} from "./user/user.module";
 
 
 @NgModule({
-  imports: [BrowserModule, CoreModule,
-    HttpClientModule, AppRoutingModule,
-    AboutModule, HomeModule,
-    SharedModule.forRoot()],
-  declarations: [AppComponent],
+  imports: [BrowserModule,
+    HttpClientModule, AppRoutingModule,UserModule
+    ],
+  declarations: [AppComponent,InterviewComponent],
   providers: [{
     provide: APP_BASE_HREF,
     useValue: '<%= APP_BASE %>'
-  }],
+  },UserService],
   bootstrap: [AppComponent]
 
 })

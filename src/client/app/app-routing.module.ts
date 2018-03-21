@@ -1,15 +1,15 @@
 import { NgModule } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { UserDetails }   from './user-details.component';
+import {InterviewComponent} from "./user/user.component";
+
+const routes: Routes = [
+  { path: 'detail/:id', component: UserDetails },
+  { path: 'users', component: InterviewComponent }
+];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot([
-      /* define app module routes here, e.g., to lazily load a module
-         (do not place feature module routes here, use an own -routing.module.ts in the feature instead)
-       */
-    ])
-  ],
-  exports: [RouterModule]
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ]
 })
 export class AppRoutingModule { }
-
